@@ -235,12 +235,208 @@
 // console.log(namee)
 // console.log(coursename)
 //******function******
-function userloggedin(username){
-    if(!username){
-        console.log(`please enter a valid username`)
-        return
-    }
-    return `${username} just logged in`
+// function userloggedin(username){
+//     if(!username){
+//         console.log(`please enter a valid username`)
+//         return
+//     }
+//     return `${username} just logged in`
+// }
+// console.log(userloggedin()) // it will give undefined just logged in
+// // console.log(userloggedin("karan"))
+function calculateCartPrice(val1,val2,...num1){ // rest operator
+    return num1
 }
-console.log(userloggedin()) // it will give undefined just logged in
-// console.log(userloggedin("karan"))
+// console.log(calculateCartPrice(200,400,500,600,700))
+//passing object as a parameter in function
+user={
+    username:"karan",
+    email:"karan@gmail.com",
+    age:22
+}
+function foruser(objectname){
+    // console.log(`username is ${objectname.username} and email is ${objectname.email} and age is ${objectname.age}`)
+}
+foruser(user)
+foruser({
+    username:"sam",
+    email:"sam.com",
+    password:"sammpassword"
+})
+//passing array as a parameter in function
+newarray=[1,2,3,4,5,6,7]
+function forarray(anyarray){
+    return anyarray[4]
+}
+// console.log(forarray(newarray))
+// console.log(forarray([100,200,300,400,500]))
+//about scope
+// if(true){
+//     const username="karan"
+//     if(username==="karan"){
+//         const website=" youtube"
+//         console.log(username+website) 
+//     }
+//     console.log(website)
+// }
+// console.log(username)
+//types to declare a function +++++++interesting++++++++++
+// console.log(addone(3))
+// function addone(num){
+//     return num+1
+// }
+// console.log(addtwo(8))
+// const addtwo=function(num){
+//     return num+2
+// }
+// console.log(addtwo(8))
+// about this 
+//this refers to an object
+//If a normal function called directly this refers to the global object.
+//In an object method, this refers to the current object. 
+//An object method is a function defined as a property inside an object.
+// console.log(this) //in node it refers to {} and in browser it refers to a window
+// this about normal function
+//this depends on how the function is called
+//user.greet() → user -->>called by object
+// greet() → global object -->>directly called
+// function greett(){
+//     console.log(this) // here this refers to the global object
+// }
+// greett()
+// normal func inside a normal func
+// const user = {
+//     name: "Karan",
+
+//     func1: function() {
+//         function func2() {
+//             console.log(this);
+//         }
+
+//         func2();
+//     }
+// };
+
+// user.func1(); //func1 gets user as its this
+//func2 is called directly So func2 gets its own this, which is the global object
+// const userr = {
+//     name: "Rahul",
+//     greet: function() {
+//         console.log(this.name);
+//     }
+// };
+// const myFunction = userr.greet; //it only gives the reference of the function
+// myFunction();
+// function chai(){
+//     let username="karan"
+//     console.log(this)
+// }
+// chai()
+// const useer = {
+//     name: "Karan",
+//     greet: function() {
+//         console.log(this);
+//     }
+// };
+// useer.greet();
+//this depends on where the arrow function is created
+//It inherits this from its surrounding lexical scope. Calling it through an object does not change its this.
+// const funn=()=>{
+//     let username="karan"
+//     console.log(this)
+// }
+// funn() //arror function inherit this from their surrounding lexical scope
+// in normal arrow function it gives {}
+// const user1 = {
+//     name: "Karan",
+
+//     funn: () => {
+//         console.log(this);
+//     }
+// };
+
+// user1.funn(); // inside an object method this still refers to {}
+//++++++Arrow function inside a normal function++++++
+// const user2 = {
+//     name: "Karan",
+
+//     funn: function() {
+//         const arrow = () => {
+//             console.log(this.name);
+//         };
+
+//         arrow();
+//     }
+// };
+// user2.funn() //funn is called through user2, its this refers to user2
+// arrow function inside an arrow function
+// const greet = () => {
+//     const arrow = () => {
+//         console.log(this);
+//     };
+
+//     arrow();
+// };
+
+// greet();
+// two normal functions outside the arrow function
+//An arrow function inherits this from the surrounding scope where it is created
+//case 1
+// const user3= {
+//     name: "Karan",
+//     func1: function() {
+//         this.name = "Func1";
+//         function func2() {
+//             this.name = "Func2";
+//             const arrow = () => {
+//                 console.log(this.name);
+//             };
+//             arrow();
+//         }
+//         func2();
+//     }
+// };
+// user3.func1();
+// //case 2
+// const user4 = {
+//     name: "Karan",
+//     func1: function() {
+//         this.name = "Func1";
+//         const arrow = () => {
+//             console.log(this.name);
+//         };
+//         function func2() {
+//             this.name = "Func2";
+//             arrow();
+//         }
+//         func2();
+//     }
+// };
+// user4.func1();
+// another way to declare arrow function
+// const add=(num1,num2)=>{
+//     return num1+num2
+// }
+// const add1=(num1,num2)=>({username:"sam"}) //implicit return in () brackets
+// console.log(add1(3,3))
+//++++++++IIFE(Immdiately invoked function expressions)+++++++ jb global variables problem krte h tb use krte h
+//()()
+// (function chaii(){
+//     console.log(`DB CONNECTED`)
+// })(); //here ; is used to stop the execution of IIFE
+// (aurcode=(name)=>{ //named IIFE
+//     console.log(`DB CONNECTED2 for ${name}`)
+// })("sam")
+
+//var out of scope bi access krskte h 
+//agr declare krne se phle access krte h toh undefined btata h
+//falsy values-->> 0,-0,null,undefined,NaN,BigInt 0n,""
+//truthy values-->> "0",'false'," ",[],{},function(){}
+//every array,object,function is truthy value
+if(()=>{console.log("sammm")}){
+    console.log("abc")
+}
+const emptyobj={}
+if(Object.keys(emptyobj).length===0){
+    console.log("empty object")
+}
