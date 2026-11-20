@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM WiTH CHAi AUR CODE</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    <div class="week">
+        <!-- this is a comment -->
+        <div class="day">MONDAY</div>
+        <div class="day">TUESDAY</div>
+        <div class="day">WEDNESDAY</div>
+        <div class="day">THRUSDAY</div>
+    </div>
+    <ul class="ulclass">
+        <li>JS</li>
+    </ul>
+</body>
+<script>
+// const weekk= document.querySelector('.week');
+// console.log(weekk);
+// console.log(weekk.children);// from parent to children
+// for (let i = 0; i < weekk.children.length; i++) {
+//     // console.log(weekk.children[i].innerText)
+    
+// }
+// weekk.children[1].style.color = "orange";
+// console.log(weekk.firstElementChild)
+// console.log(weekk.lastElementChild)
+// const dayone=document.querySelector('.day')
+// console.log(dayone)
+// console.log(dayone.parentElement)// from child to parent
+// console.log(dayone.nextElementSibling)
+// console.log(weekk.childNodes) //important
+// const div = document.createElement('div');
+// //creates element just in a memory
+// // console.log(div)
+// div.className = "myclass";
+// div.id = Math.floor(Math.random() * 1000);
+// div.setAttribute("title", "mytitle");
+// div.setAttribute("class", "mysecondclass");
+// div.style.backgroundColor = "green";
+// div.innerText = "new created div";
+// const br = document.createElement('br');
+// const div2 = document.createTextNode("new created div2");
+// div.appendChild(br);
+// div.appendChild(div2);
+// document.body.appendChild(div);//in DOM
+const createdli=document.createElement('li');
+console.log(createdli)
+createdli.innerHTML="Python"
+document.querySelector('.ulclass').appendChild(createdli)
+const addlanguage=(langname)=>{
+    const newli=document.createElement('li')
+    // newli.textContent=`<i>${langname}</i>`
+    newli.innerHTML=`<i>${langname}</i>`
+    document.querySelector('.ulclass').appendChild(newli)
+}
+addlanguage("Cpp")
+// TextContent treats input as a plain text it does not understand
+// the html tags inside it
+// innerHTML parse the input and detect the html tags 
+// and it parses the whole tree
+//Another optimal way
+const addoptilanguage=(langname)=>{
+    const newli=document.createElement('li')
+    const textnode=document.createTextNode(langname)
+    const bold=document.createElement('b')
+    bold.appendChild(textnode)
+    newli.appendChild(bold)
+    document.querySelector('.ulclass').appendChild(newli)
+}
+addoptilanguage("ZigZag")
+addoptilanguage("golang")
+//Edit-->>replaceWith
+const secchild=document.querySelector('li:nth-child(2)')
+console.log(secchild)
+const newli=document.createElement('li')
+newli.textContent="Mojo"
+secchild.replaceWith(newli)
+//remove
+const lastchild=document.querySelector('li:last-child')
+lastchild.remove()
+</script>
+<!-- <script> tag connects JavaScript to HTML -->
+</html>
